@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			canvas{
+				background: #272822;
+				position: relative;
+				
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				var canvas = document.getElementById("canvas");
+				var cv = canvas.getContext('2d');
+				cv.strokeStyle='yellow';
+				cv.lineWidth='4';
+				canvas.onmousedown=function(e){
+					var ev = window.event || e;
+					var m_start_left = ev.layerX || ev.offsetX;
+					var m_start_top = ev.layerY || ev.offsetY;
+				cv.beginPath();
+				cv.moveTo(m_start_left,m_start_top);
+				canvas.onmousemove=function(f){
+					var ev = window.event || f;
+					var m_now_left = ev.layerX || ev.offsetX;
+					var m_now_top = ev.layerY || ev.offsetY;
+					cv.lineTo(m_now_left,m_now_top);
+					cv.stroke();
+				canvas.onmouseup = function(){
+					canvas.onmousemove=null;
+				}
+				document.getElementById("color").onchange = function(){
+					cv.strokeStyle=this.value;
+				}
+				document.getElementById("cuxi").onchange = function(){
+					cv.lineWidth = this.value;
+					document.getElementById("cx").innerHTML = this.value;
+				}
+
+				}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<br/><br/>
+		<input type="color" name="color" id="color" value="yellow" />
+		<input type="range" name="cuxi" id="cuxi" value="10" min="1" max="50" step="1"/>
+		<span id="cx">10</span>
+		<input type="button" name="eraser" id="eraser" value="eraser" />
+		<br/><br/>
+		
+		<canvas id="canvas" width="900" height="500"></canvas>
+		
+	</body>
+</html>

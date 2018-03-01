@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="css/swiper.min.css">
+
+  <!-- Demo styles -->
+	<link rel="stylesheet" type="text/css" href="css/sz.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide one"> 
+      	<div class="top ani" swiper-animate-effect="rollIn" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s">
+      		<img src="Image/marry_1.jpg"/>
+      	</div>
+      	<div class="mid">
+      		<img src="icon/jiezhi.png" id="ring" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"/>
+      		<img src="icon/womenjiehunla.png" id="marry" class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.2s"/>
+      	</div>
+      </div>
+      <!--second slide-->
+      <div class="swiper-slide two">
+      	<div class="left ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.1s">
+      		<img src="Image/marry_5.jpg"/>
+      	</div>
+      	<div class="right ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.1s">
+      		<div class="top">
+      			<img src="Image/marry_6.jpg"/>
+      		</div>
+      		<div class="bottom">
+      			<img src="Image/t1.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="0.8s"/>
+      			<img src="Image/twoline.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="0.8s"/>
+      			<img src="Image/t2.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="0.9s"/>
+      			<img src="Image/twoline.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="0.9s"/>
+      			<img src="Image/t3.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1s"/>
+      			<img src="Image/twoline.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1s"/>
+      			<img src="Image/t4.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1.1s"/>
+      			<img src="Image/twoline.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1.1s"/>
+      			<img src="Image/t5.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1.2s"/>
+      			<img src="Image/twoline.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.1s" swiper-animate-delay="1.2s"/>
+      		</div>
+      	</div>
+      	<img src="icon/fengche.gif" id="FengC" class="ani" swiper-animate-effect="flip" swiper-animate-duration="1s" swiper-animate-delay="0.1s"/>
+      </div>
+      <!--third slide-->
+      
+      <div class="swiper-slide">施工中...</div>
+      <div class="swiper-slide">施工中...</div>
+      
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  	<div id="music">
+  		<img src="icon/music_off.png" class="musicPic" />
+  		<img src="icon/music.gif" class="musicBg" />
+  		<audio src="media/littleLuck.mp3" preload="auto" loop="loop" class="media" autoplay="autoplay"></audio>
+  	</div>
+	<p class="design">Design by RECube</p>
+  <!-- Swiper JS -->
+  <script src="Js/swiper.min.js"></script>
+	<script src="Js/swiper.animate1.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- Initialize Swiper -->
+  <script src="Js/sz.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>NR</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var rag = document.getElementById('rag');
+				var num = document.getElementById('num');
+				rag.onmousemove = function () {
+					num.value = rag.value;
+				}
+				num.oninput = function () {
+					rag.value = num.value;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="range" name="" id="rag" value="2" min="2"max="100"step="2"/>
+		<br/>
+		<input type="number" name="" id="num" value="2" min="2"max="100"step="2"/>
+		<br/>
+		<input type="submit" name="" id="" value="提交" />
+	</body>
+</html>
