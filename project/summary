@@ -1,0 +1,23 @@
+## front-end
+- html/css/javaScript
+2 html5/css3/ajax
+3 animate.css canvas
+4 jquery zepto animate.css
+5 web app 响应式设计
+6 vue/vue-cli(command line interface)/vue-router/vuex/axious/es6/less   templete compoent
+7 less/booststrap/es6
+
+8 前端工程化
+  webpack(entry入口、output输出、loader加载器、plugins插件)、gulp(grunt)/compoent
+
+
+node package manager code:
+npm install -g vue-cli
+D:
+cd test
+vue init webpack project
+cd project
+npm install
+npm run dev
+npm run build
+
