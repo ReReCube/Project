@@ -1,5 +1,5 @@
-## front-end
-- html/css/javaScript
+front-end
+1 html/css/javaScript
 2 html5/css3/ajax
 3 animate.css canvas
 4 jquery zepto animate.css
@@ -20,4 +20,3 @@ cd project
 npm install
 npm run dev
 npm run build
-
