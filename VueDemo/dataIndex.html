@@ -1,0 +1,102 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace Test.VueJS.Controllers
+{
+
+    public class HomeController : Controller
+    {
+        /// <summary>
+        /// 静态
+        /// </summary>
+        public static List<Student> students = new List<Student>();
+        //
+        // GET: /Home/
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult AddStudent(Student student)
+        {
+            if (student == null)
+            {
+                return Json(new ReturnCode(-1, "error"), JsonRequestBehavior.AllowGet);
+            }
+            students.Add(student);
+            return Json(new ReturnCode(1, "success"), JsonRequestBehavior.AllowGet);
+        }
+        /// <summary>
+        /// 获取所有
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetAllStudent()
+        { 
+            return Json(students, JsonRequestBehavior.AllowGet);
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult DeleteStudent(string name)
+        {
+            var student = students.FirstOrDefault(p => p.Name == name);
+            if (student != null)
+            {
+                students.Remove(student);
+            }
+            return Json(new ReturnCode(1, "success"), JsonRequestBehavior.AllowGet);
+        }
+    }
+    /// <summary>
+    /// 学生
+    /// </summary>
+    public class Student
+    {
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// 年龄
+        /// </summary>
+        public int Age { get; set; }
+        /// <summary>
+        /// 拥有的课程
+        /// </summary>
+        public List<Course> Courses
+        {
+            get;
+            set;
+        }
+    }
+    /// <summary>
+    /// 课程
+    /// </summary>
+    public class Course
+    {
+        public string Name { get; set; }
+    }
+    /// <summary>
+    /// 处理结果返回值
+    /// </summary>
+    public class ReturnCode
+    {
+        public ReturnCode(int code, string msg)
+        {
+            this.Code = code;
+            this.Msg = msg;
+        }
+        public int Code { get; set; }
+        public string Msg { get; set; }
+    }
+}

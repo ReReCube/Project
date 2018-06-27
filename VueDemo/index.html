@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width" />
+		<title></title>
+		<!--引入vue-->
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<!--ajax支持-->
+		<script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script>
+	</head>
+
+	<body>
+		<div id="demo">
+			<table border="0">
+				<tr class="textCenter">
+					<td style="width: 100px;">姓名</td>
+					<td style="width: 60px;">年龄</td>
+					<td style="width: 200px;">课程</td>
+				</tr>
+				<tr v-for="x in studentList">
+					<td>
+						{{x.Name}}
+					</td>
+					<td>
+						{{x.Age}}
+					</td>
+					<td>
+						<div v-for="cc in x.Courses">{{cc.Name}}</div>
+					</td>
+					<td>
+						<input type="button" v-on:click="DeleteStudent(x)" value="删除" />
+					</td>
+				</tr>
+			</table>
+			<form name="myForm">
+				<table>
+					<tr>
+						<td style="width: 50px;">姓名:</td>
+						<td>
+							<input type="text" v-model="newStudent.Name" />
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 50px;">年龄:</td>
+						<td>
+							<input type="number" v-model="newStudent.Age" />
+						</td>
+					</tr>
+					<tr>
+						<table>
+							<tr v-for="(x,index) in newStudent.Courses">
+								<td style="width: 50px;">课程{{index+1}}</td>
+								<td><input type="text" v-model="x.Name" /></td>
+							</tr>
+						</table>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align: right;">
+							<input type="button" v-on:click="addCourses()" value="添加课程" />
+							<input type="submit" v-on:click="addStudent()" value="添加" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#demo",
+				data: {
+					studentList: [],
+					newStudent: {
+						Name: '',
+						Age: '',
+						Courses: []
+					}
+				},
+				methods: {
+					GetAllStudent: function() {
+						var _self = this;
+						_self.studentList = [];
+						this.$http.get("/home/GetAllStudent").then(function(res) {
+							for(var i = 0; i < res.body.length; i++) {
+								_self.studentList.push(res.body[i]);
+							}
+						});
+					},
+					DeleteStudent: function(student) {
+						var _self = this;
+						_self.$http.post("/Home/DeleteStudent", {
+							name: student.Name
+						}).then(function(res) {
+							if(res.body.Code == 1) {
+								_self.GetAllStudent();
+							} else {
+								alert(response.body.Msg);
+							}
+						});
+					},
+					addCourses: function() {
+						this.newStudent.Courses.push({
+							Name: ""
+						});
+					},
+					addStudent: function() {
+						var _self = this;
+						_self.$http.post("/Home/AddStudent", _self.newStudent).then(function(res) {
+							if(res.body.Code == 1) {
+								_self.GetAllStudent();
+							} else {
+								alert(response.body.Msg);
+							}
+						});
+						return false;
+					}
+				}
+			});
+			vm.GetAllStudent();
+		</script>
+	</body>
+
+</html>
