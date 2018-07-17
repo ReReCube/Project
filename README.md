@@ -1,6 +1,6 @@
 # Projects
-- tab选项卡（技术栈：js）
-- jQuery anoSlide（技术栈：jquery）
+- tab选项卡（技术栈：原生js）
+- jQuery autoSlide（技术栈：jquery）
 - Swiper微场景（技术栈：SWIPER、css、html、js）
 - Demo of NumberChange（技术栈：H5、css3）
 - Jd草图（技术栈：css、html、js）
