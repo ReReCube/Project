@@ -1,4 +1,4 @@
-# Project
+# Projects
 - tab选项卡（技术栈：js）
 - jQuery anoSlide（技术栈：jquery）
 - Swiper微场景（技术栈：SWIPER、css、html、js）
